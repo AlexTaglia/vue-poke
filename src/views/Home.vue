@@ -15,7 +15,7 @@
    
       </div> -->
     </div>
-    <button class="btn btn-primary" @click="next">carica di più</button>
+    <button class="btn btn-primary mb-5" @click="next">carica di più</button>
   </div>
 </template>
 
@@ -35,7 +35,9 @@ export default {
   data (){
     return {
       pokemonList:[],
+      pokemonData:[],
       nextUrl:'',
+      detailUrl:'',
       apiUrl: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20'
     }
   },
@@ -54,8 +56,37 @@ export default {
         this.nextUrl = result.data.next
         this.pokemonList = result.data.results;
         console.log(`getApi function started`)
+        console.log(this.pokemonList)
+
+        // this.getDetail() toDO
+
+        /*
+        this.pokemonList.forEach((pokemon) =>{
+          let url = pokemon.url
+            axios.get(url).then((result)=>{
+            this.pokemonData = result.data
+            })
+        })
+        */
       })
     },
+
+    //toDo
+    /*
+    getDetail(){
+      this.pokemonList.forEach((pokemon) =>{
+        console.log(`getDetail function started`)
+        let url = pokemon.url
+        console.log(url)
+          axios.get(url).then((result)=>{
+          this.pokemonData = result.data
+          console.log(result.data)
+          console.log(this.pokemonData)
+          })
+      })
+    },
+    */
+
 
     next(){
       // chiamata Axios
@@ -81,6 +112,6 @@ export default {
 <style lang="postcss" scoped>
  .home{
    height: calc(100vh - 80px);
-   overflow-y: auto;
+   /* overflow-y: auto; */
  }
 </style>

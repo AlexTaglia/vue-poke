@@ -1,8 +1,8 @@
 <template>
   <div class="card mb-4">
     <div class="inner">
-      <img class="img-fluid" :src="imageUrl + (id + 1) +'.png'" alt="">
-      <div class="pt-2">
+      <img class="img-fluid" :src="pathImg()" :alt="pokemonName">
+      <div class="pt-2 pokemon-name">
         {{pokemonName}}
       </div>
     </div>
@@ -20,6 +20,11 @@ export default {
     return{
       imageUrl: 'https://pokeres.bastionbot.org/images/pokemon/',
     }
+  },
+  methods:{
+    pathImg(){
+      return this.imageUrl + (this.id + 1) +'.png'
+    }
   }
 }
 </script>
@@ -34,6 +39,7 @@ export default {
       border-radius: 10px;
       padding: 20px;
       background-color: #42b983;
+      // text-transform: uppercase;
     }
   }
 </style>
