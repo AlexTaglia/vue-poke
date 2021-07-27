@@ -1,19 +1,14 @@
 <template>
   <div class="home container">
-    <!-- -------------------------- -->
-    <!-- <Search class="mb-5" @search="getString" /> -->
 
-    <!-- -------------------------- -->
     <div class="row">
-      <Card class="col-12	col-sm-6 col-md-4	col-lg-2" 
+      <Card class="col-6	col-sm-6 col-md-4	col-lg-2" 
       v-for="(pokemon, index) in pokemonList"
       :key="index"
       :id="index"
       :pokemonName="pokemon.name"
       />
-      <!-- <div id="scoll-trigger" ref="infinitescrolltrigger">
-   
-      </div> -->
+>
     </div>
     <button class="btn btn-primary mb-5" @click="next">carica di più</button>
   </div>
@@ -23,19 +18,17 @@
 //------------------------------------------- 
 <script>
 import Card from '@/components/Card.vue'
-// import Search from '@/components/Search.vue'
+
 import axios from 'axios'
 
 export default {
   name: 'Home',
   components: {
     Card,
-    // Search
   },
   data (){
     return {
       pokemonList:[],
-      pokemonData:[],
       nextUrl:'',
       detailUrl:'',
       apiUrl: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20'
@@ -58,35 +51,8 @@ export default {
         console.log(`getApi function started`)
         console.log(this.pokemonList)
 
-        // this.getDetail() toDO
-
-        /*
-        this.pokemonList.forEach((pokemon) =>{
-          let url = pokemon.url
-            axios.get(url).then((result)=>{
-            this.pokemonData = result.data
-            })
-        })
-        */
       })
     },
-
-    //toDo
-    /*
-    getDetail(){
-      this.pokemonList.forEach((pokemon) =>{
-        console.log(`getDetail function started`)
-        let url = pokemon.url
-        console.log(url)
-          axios.get(url).then((result)=>{
-          this.pokemonData = result.data
-          console.log(result.data)
-          console.log(this.pokemonData)
-          })
-      })
-    },
-    */
-
 
     next(){
       // chiamata Axios
@@ -104,7 +70,7 @@ export default {
         console.log(tempArray)
         console.log(`next function started`)
       })
-    }
+    },
   }
 }
 </script>
@@ -112,6 +78,5 @@ export default {
 <style lang="postcss" scoped>
  .home{
    height: calc(100vh - 80px);
-   /* overflow-y: auto; */
  }
 </style>

@@ -10,7 +10,7 @@
           <div class="menu">
 
             <router-link to="/">Home</router-link>
-            <!-- <router-link to="/about">About</router-link> -->
+            <router-link to="/search">Search</router-link>
           
           </div>
         </div>
@@ -47,8 +47,10 @@
     }
 
     a {
-      color: #2c3e50;
+      color: #b3dfcb;
       line-height: 60px;
+      padding-right: 12px;
+      text-decoration: none;
 
       &.router-link-exact-active {
         color: #42b983;

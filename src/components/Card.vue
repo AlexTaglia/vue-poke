@@ -36,10 +36,11 @@ export default {
     background-color: transparent;
     border: none;
     .inner{
+      border: 6px solid yellow;
       border-radius: 10px;
-      padding: 20px;
+      padding: 10px;
       background-color: #42b983;
-      // text-transform: uppercase;
+      text-transform: uppercase;
     }
   }
 </style>
