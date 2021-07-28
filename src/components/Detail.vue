@@ -1,20 +1,58 @@
 <template>
-  <div class="card mb-4 p-5" v-if="pokemonSearchedDetails !== {} && pokemonSearchedDetails.types !== undefined">
-    <div class="row pb-5 header">
-      <div class="col-6 text-start">
+  <div
+    class="card mb-4 p-5"
+    v-if="
+      pokemonSearchedDetails !== {} &&
+      pokemonSearchedDetails.types !== undefined
+    "
+  >
+    <div class="row pb-5 header bold">
+      <div class="col-8 text-start">
         <div>
           id# {{ pokemonSearchedDetails.id }} {{ pokemonSearchedDetails.name }}
         </div>
       </div>
-      <div class="col-6 text-end">
+      <div class="col-4 text-end">
         <div>Exp. {{ pokemonSearchedDetails.base_experience }}</div>
       </div>
-      <div class="col-12 text-start">
-        <div>Type: {{ pokemonSearchedDetails.types[0].type.name }}</div>
-      </div>
     </div>
-    <img class="img-fluid" :src="pathImg()" :alt="pokemonSearchedDetails.name" />
+    <img
+      class="img-fluid mb-4"
+      :src="pathImg()"
+      :alt="pokemonSearchedDetails.name"
+    />
 
+    <div class="details">
+      <div class="col-12 text-start">
+        <span class="bold">Type:</span>
+
+        <span class=""
+          v-for="(type, index) in pokemonSearchedDetails.types"
+          :key="index"
+        >
+          {{ type.type.name }}
+        </span>
+      </div>
+      <div class="col-12 text-start">
+        <span class="bold">Ability:</span>
+        <span
+          v-for="(abilities, index) in pokemonSearchedDetails.abilities"
+          :key="index"
+        >
+          {{ abilities.ability.name }}
+        </span>
+      </div>
+      <div class="col-12 text-start">
+        <span class="bold">Held items:</span>
+        <span
+          v-for="(item, index) in pokemonSearchedDetails.held_items"
+          :key="index"
+        >
+          {{ item.item.name }}
+        </span>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -41,6 +79,9 @@ export default {
 //------------------------------------------- 
 <style scoped lang="scss">
 .card {
+  .bold {
+    font-weight: bold;
+  }
   .header {
     font-size: 26px;
   }
@@ -50,7 +91,8 @@ export default {
   text-transform: uppercase;
   border-radius: 10px;
   .details {
-    font-size: 26px;
+    font-size: 20px;
+
   }
 }
 </style>

@@ -32,6 +32,5 @@ export default {
 
 //------------------------------------------- 
 <style scoped lang="scss">
-  input{
-  }
+
 </style>
