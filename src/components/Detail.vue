@@ -16,11 +16,13 @@
         <div>Exp. {{ pokemonSearchedDetails.base_experience }}</div>
       </div>
     </div>
-    <img
-      class="img-fluid mb-4"
-      :src="pathImg()"
-      :alt="pokemonSearchedDetails.name"
-    />
+    <div>
+      <img
+        class="img-fluid mb-4"
+        :src="pathImg()"
+        :alt="pokemonSearchedDetails.name"
+      />
+    </div>
 
     <div class="details">
       <div class="col-12 text-start">
@@ -64,7 +66,8 @@ export default {
   },
   data() {
     return {
-      imageUrl: `https://pokeres.bastionbot.org/images/pokemon/`,
+      // imageUrl: 'https://pokeres.bastionbot.org/images/pokemon/',
+      imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
     };
   },
   methods: {
@@ -79,6 +82,11 @@ export default {
 //------------------------------------------- 
 <style scoped lang="scss">
 .card {
+
+  img {
+    width: 100px;
+  }
+
   .bold {
     font-weight: bold;
   }

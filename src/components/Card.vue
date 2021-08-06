@@ -18,7 +18,9 @@ export default {
   },
   data(){
     return{
-      imageUrl: 'https://pokeres.bastionbot.org/images/pokemon/',
+      // imageUrl: 'https://pokeres.bastionbot.org/images/pokemon/',
+      imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+      
     }
   },
   methods:{
